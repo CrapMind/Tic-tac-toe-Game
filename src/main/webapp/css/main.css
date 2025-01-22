@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+main {
+    padding: 20px;
+    text-align: center;
+}
+footer {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: #0056b3;
+}
+
+#game {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 300px;
+    height: 300px;
+}
+
+#game td {
+    border: 2px solid #000; /* Границы клеток */
+    width: 100px;           /* Размер клетки */
+    height: 100px;          /* Размер клетки */
+    text-align: center;     /* Центровка текста */
+    font-size: 24px;        /* Размер текста */
+    font-weight: bold;      /* Жирный текст */
+    cursor: pointer;        /* Указатель при наведении */
+}
+
+#game td:hover {
+    background-color: #f0f0f0; /* Подсветка при наведении */
+}
