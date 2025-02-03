@@ -1,7 +1,6 @@
 package org.example.model;
 
 import lombok.Getter;
-import org.example.model.util.Value;
 
 public class Game {
 
