@@ -2,11 +2,11 @@ package org.example.model;
 
 import lombok.Getter;
 
+@Getter
 public class Game {
 
-    private static Game instance;
+    private static final Game instance = new Game();
 
-    @Getter
     private final Cell[][] cells = new Cell[3][3];
 
     private Game() {}
@@ -20,9 +20,6 @@ public class Game {
     }
 
     public static Game getInstance() {
-        if (instance == null) {
-            instance = new Game();
-        }
-        return instance;
+        return instance == null ? new Game() : instance;
     }
 }

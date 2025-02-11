@@ -16,4 +16,8 @@ public class Cell {
         this.x = x;
         this.y = y;
     }
+
+    public boolean isEmpty() {
+        return value.equals(Value.EMPTY);
+    }
 }
