@@ -43,15 +43,25 @@
         <td class="cell" id="8"></td>
     </tr>
 </table>
+<div class="button-container">
+<button id="restart-button"> RESTART </button>
+</div>
 
 <script>
     const BASE_URL = "http://localhost:8080";
+    const RESTART_BUTTON = document.querySelector('#restart-button');
+    const CELLS = document.querySelectorAll('.cell');
+
     let cross = true;
     let gameOver = <%= isGameFinished %>;
     let isDraw = <%= isDraw %>;
 
     $(document).ready(function () {
-        const CELLS = document.querySelectorAll('.cell');
+
+        RESTART_BUTTON.addEventListener('click', function () {
+            restart();
+            showOrHideRestartButton("hide");
+        })
 
         CELLS.forEach(cell => {
             cell.addEventListener('click', () => {
@@ -63,6 +73,7 @@
         });
         if (gameOver) {
             setTimeout(winAnimation, 500);
+            showOrHideRestartButton("show");
         }
     });
 
@@ -76,15 +87,30 @@
             contentType: "application/json",
             data: JSON.stringify({coordinates: cell.id, value: cell.value})
         }).then(res => {
-            if (res === "end") {
+            if (res.status === "end") {
                 gameOver = true;
                 location.reload();
             }
         });
     }
 
+    function restart() {
+        gameOver = false;
+        isDraw = false;
+        CELLS.forEach(cell => {
+            cell.textContent = "";
+        })
+        $.ajax({
+            type: "GET",
+            url: BASE_URL + `/rest/restart`,
+            contentType: "application/json"
+        }).then(res => {
+            console.log(res);
+            location.reload();
+        });
+    }
+
     function winAnimation() {
-        const CELLS = document.querySelectorAll('.cell');
 
         if (isDraw) {
             CELLS.forEach(cell => {
@@ -102,6 +128,25 @@
             }, Math.random() * 1000);
         });
     }
+
+    function showOrHideRestartButton(command) {
+        switch (command) {
+            case 'hide': {
+                RESTART_BUTTON.style.visibility = 'hidden';
+                RESTART_BUTTON.style.display = 'none';
+                RESTART_BUTTON.style.opacity = '0';
+                break;
+            }
+            case 'show': {
+                RESTART_BUTTON.style.visibility = 'visible';
+                RESTART_BUTTON.style.display = 'block';
+                RESTART_BUTTON.style.opacity = '1';
+                break;
+            }
+        }
+    }
+
+
 </script>
 
 </body>

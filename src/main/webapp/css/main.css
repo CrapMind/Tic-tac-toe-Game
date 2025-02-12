@@ -1,42 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-}
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
     text-align: center;
-}
-main {
-    padding: 20px;
-    text-align: center;
-}
-footer {
-    margin-top: 20px;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-.button:hover {
-    background-color: #0056b3;
 }
 
 #game {
@@ -47,7 +13,7 @@ footer {
 }
 
 #game td {
-    border: 2px solid #000; /* Границы клеток */
+    border: 2px solid black; /* Границы клеток */
     width: 100px;           /* Размер клетки */
     height: 100px;          /* Размер клетки */
     text-align: center;     /* Центровка текста */
@@ -61,11 +27,9 @@ footer {
 }
 
 #winner {
-    display: block;
     font-size: 18px;
     font-weight: bold;
-    color: darkgreen;
-    text-align: center;
+    color: black;
     margin-top: 10px; /* Отступ вверх от таблицы */
 }
 
@@ -89,5 +53,29 @@ footer {
 
 .animate {
     animation: pulse 0.5s infinite alternate;
+}
+
+#restart-button {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#restart-button:hover {
+    background-color: gainsboro;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 

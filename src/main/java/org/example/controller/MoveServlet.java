@@ -59,5 +59,6 @@ public class MoveServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setStatus(status);
         response.getWriter().write(mapper.writeValueAsString(message));
+        System.out.println(mapper.writeValueAsString(message));
     }
 }
